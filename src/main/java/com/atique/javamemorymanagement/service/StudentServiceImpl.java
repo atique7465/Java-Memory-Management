@@ -21,17 +21,20 @@ public class StudentServiceImpl implements StudentService {
     @Override
     public Student create(String name) {
 
-        //Very bad code which will generate heap issues
+        //Very bad code which will generate heap issues / memory leak
 
-        //        log.info("name: {}", name);
-
-        //UUID studentId = UUID.randomUUID();
-
-//        if (!studentIds.contains(studentId.toString())) {
-//            studentIds.add(studentId.toString());
+//        log.info("name: {}", name);
+//
+//        UUID studentId = null;
+//        for (int i = 0; i <= 100000; i++) {
+//            studentId = UUID.randomUUID();
+//
+//            if (!studentIds.contains(studentId.toString())) {
+//                studentIds.add(studentId.toString());
+//            }
 //        }
 
-        //return Student.builder().name(name).id(studentId.toString()).build();
+//        return Student.builder().name(name).id(studentId.toString()).build();
 
         //Solution
         return Student.builder().name(name).id(UUID.randomUUID().toString()).build();
